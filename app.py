@@ -11,7 +11,7 @@ app.secret_key = 'your_secret_key'  # required for session and flash
 conn = MySQLdb.connect(
     host='localhost',
     user='root',         # your MySQL username
-    password='M@njeethsai#2005',         # your MySQL password
+    password='yoursql password',         # your MySQL password
     database='students_db'
 )
 cursor = conn.cursor()
