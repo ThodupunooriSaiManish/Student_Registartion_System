@@ -5,3 +5,27 @@
     <title>Registered Students</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+<body>
+    <div class="table-container">
+        <h1>Registered Students</h1>
+
+        <form method="GET" action="/students">
+            <input type="text" name="search" placeholder="Search by Name or Course" value="{{ search or '' }}">
+            <button type="submit">Search</button>
+        </form>
+
+        <a href="/export" class="btn">Export to CSV</a>
+        <a href="/" class="btn">Register New Student</a>
+
+        {% if students %}
+            <table>
+                <thead>
+                    <tr>
+                        <th><a href="?sort_by=id&order={{ 'desc' if order=='asc' else 'asc' }}">#</a></th>
+                        <th><a href="?sort_by=name&order={{ 'desc' if order=='asc' else 'asc' }}">Name</a></th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th><a href="?sort_by=course&order={{ 'desc' if order=='asc' else 'asc' }}">Course</a></th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
